@@ -5,27 +5,301 @@
         <title>Le Machine Learning dans le domaine médical</title>
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
         <link rel="stylesheet" href="index.css" />
+        <script type="text/javascript">
+        //<![CDATA[
+            $(function() {
+                navVisible = false;
+                nav = $("#nav");
+                nav.hide();
+                onScroll = function() {
+                    scrollTop = $(window).scrollTop();
+                    if (navVisible) {
+                        if (scrollTop < 570) {
+                            nav.hide();
+                            navVisible = false;
+                        }
+                    }
+                    else {
+                        if (scrollTop >= 570) {
+                            nav.fadeIn(300);
+                            navVisible = true;
+                        }
+                    }
+                };
+                onScroll();
+                $(window).scroll(onScroll);
+            });
+        //]]>
+        </script>
 
-        <link href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500|Lato" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Oswald:300,400|Lato" rel="stylesheet">
     </head>
 
-    <body>
+    <body data-spy="scroll" data-target="#navspy">
+
+<nav class="navbar navbar-default navbar-fixed-top c-navbar" id="nav">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Le Machine Learning dans le domaine médical</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="navspy">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#ml-en-bref">ML en bref</a></li>
+        <li><a href="#data">Données</a></li>
+        <li><a href="#applications">Applications</a></li>
+        <li><a href="#perspectives">Perspectives</a></li>
+        <li><a href="#limites">Limites</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
         <div class="jumbotron c-main-header">
-            
-                <h1>Le Machine Learning dans le domaine médical</h1>
+
+                <div class="c-cover">            
+                    <h1>Le Machine Learning dans le domaine médical</h1>
+                    <h2>Veille technologique — Yann Vaginay — <a href="https://twitter.com/yannvgn_ecl">@yannvgn_ecl</a></h2>
+                </div>
 
                 <span class="copyright">Domaine public. <a href="https://unsplash.com/photos/nss2eRzQwgw">https://unsplash.com/photos/nss2eRzQwgw</a></span>
             
         </div>
         
         <div class="container c-intro">
-            <p style="text-align: center">En cours de rédaction</p>
+            <p>Le Machine Learning est omniprésent aujourd’hui. Dans un nombre de domaines croissant, le Machine Learning est employé pour analyser, comprendre, prédire automatiquement ; c’est aussi une discipline qui, depuis relativement peu, suscite la curiosité et l’intérêt de toutes parts de la communauté scientifique.</p>
+            <br />
+            <figure>
+                <img src="images/trend.png" alt="Nombre relatif de recherches Google sur l'apprentissage automatique" width="500" />
+                <figcaption>Nombre relatif de recherches Google sur l'apprentissage automatique (<a href="https://g.co/trends/o4hLp">Google Trends</a>).</figure>
+            </figure>
         </div>
+        <div class="container c-content">
+            <p>Son concept n’est pas récent : les développements des théories qui façonnent le Machine Learning remontent à la deuxième moitié du XX<sup>ème</sup> siècle. Après une période timide, c’est avec le développement d’algorithmes performants, l’accroissement des capacités de stockage, de calcul et de parallélisation et l’arrivée du phénomène du Big Data que le Machine Learning a su s’imposer comme un outil indispensable de valorisation des données.</p>
+            <p>Les applications du Machine Learning sont multiples : moteurs de recherche, finance, vision par ordinateur, météo, marketing, véhicules autonomes, surveillance, industrie.</p>
+            <p>Bien évidemment, le domaine de la santé n’est pas exclu. Cette étude de veille technologique a pour objectif de donner un aperçu de l’état de l’art et des tendances des utilisations du Machine Learning dans le domaine médical.</p>
+        </div>
+        <hr />
+        <div class="container c-content" id="ml-en-bref">
+            <h1>Le Machine Learning en bref</h1>
+            <blockquote>
+                    <p>“Instead of writing into computer code exactly what to look for, you let the algorithm figure it out.”</p>
+                    <small><cite>Andre Esteva, <a href="http://robots.stanford.edu/">Thrun lab</a></cite></small>
+            </blockquote>
+            
+                <p>Le terme de Machine Learning, ou Apprentissage Automatique, désigne un ensemble de techniques visant à déterminer les paramètres d’un modèle à partir de données dites d’apprentissage. Les données d’apprentissage données en entrée de l’algorithme donnent des prédictions en fonction du modèle. Ces prédictions sont réutilisées et analysées à l’itération suivante pour affiner le modèle (feedback). Itération après itération, on s’attend à ce que le modèle colle plus aux données d’apprentissage.</p>
+                <figure>
+                    <img src="images/image05.png" alt="Principe général du Machine Learning" width="600" />
+                    <figcaption>Principe général du Machine Learning.</figure>
+                </figure>
+            <div class="clearfix"></div>
+            <p>Pour éviter le problème du sur-apprentissage (que l’on peut comparer à l’apprentissage par coeur, qui s’oppose à la compréhension de l’objet d’apprentissage), un autre jeu de données, appelé données de test, non présenté à l’algorithme lors de l’apprentissage, permet de mesurer la qualité de prédiction.</p>
+            <p>Il existe différentes mesures de qualité d’un modèle, comme la matrice de confusion ou l’aire sous la courbe ROC. Je vous renvoie à la bibliographie pour plus de précisions. <sup><a href="#ref1">[1]</a></sup></p>
+            <p>Les erreurs sont quantifiées par l’intermédiaire d’une fonction de “coût” (quel est le “prix” à payer si l’on se trompe dans une prédiction ?). Une particularité du domaine médical sont des coûts extrêmement élevés en cas d’erreur (on ne peut pas tolérer de faux négatifs – ou du moins le moins possible – à un test de dépistage par exemple).</p>
+            
+            <div class="col-md-6"><h2>Catégories d’apprentissage</h2>
+            <p>On distingue deux principales catégories d’apprentissage :<br /><br />
+            <strong>L’apprentissage supervisé.</strong> Les données d’apprentissage sont composées, pour chaque individu, de variables explicatives (par exemple les différentes données vitales d’un patient) et d’une variable cible (par exemple malade / non malade ou encore le taux de progression d’une maladie). Il s’agit alors de deviner un moyen de prédire la variable cible en connaissant les variables explicatives. La variable cible peut être catégorielle (dans ce cas, on parlera de <mark>classification</mark>) ou représenter une valeur numérique continue (il s’agit alors de <mark>régression</mark>).<br /><br />
+            <strong>L’apprentissage non supervisé.</strong> Les données d’apprentissage ne comportent pas de variable cible ; il s’agit là d’extraire / de comprendre la structure des données. Le clustering (regroupement des individus en clusters) et la détection d’anomalies sont des formes d’apprentissage non supervisé.
+            <div class="col-md-6">
+                <figure>
+                    <img src="images/image08.png" alt="Apprentissage supervisé" width="200" />
+                </figure>
+            </div>
+            <div class="col-md-6">
+                <figure>
+                    <img src="images/image07.png" alt="Apprentissage supervisé" width="200" />
+                </figure>
+            </div>
+            <div class="clearfix"></div>
+            </p></div>
+            <div class="col-md-6">
+            <h2>Principales familles d’algorithmes</h2>
+            <p>Des modèles linéaires aux réseaux de neurones profonds, de nombreux algorithmes de Machine Learning plus ou moins sophistiqués ont été développés. Parmi eux, quelques uns reviennent souvent :</p>
+            <p><strong>Les réseaux de neurones<sup><a href="#ref2">[2]</a></sup></strong>. Les réseaux de neurones sont revenus à la mode depuis la démocratisation du calcul distribué et de l’augmentation de la capacité de calcul et de stockage. Les réseaux de neurones profonds ont fait leur preuve dans le domaine de la vision par ordinateur entre autres.
+                <figure>
+                    <img src="images/Artificial_neural_network.svg" alt="Représentation d'un réseau de neurones" width="150" />
+                    <figcaption>Représentation d'un réseau de neurones. <a href="https://commons.wikimedia.org/wiki/File:Artificial_neural_network.svg">CC BY-SA 3.0 Cburnett</a>.</figcaption>
+                </figure>
+            </p>
+            <p><strong>Les arbres de décision<sup><a href="#ref3">[3]</a></sup></strong>. À chaque niveau de l’arbre, les données sont scindées selon la valeur d’une variable explicative. Les arbres de décision sont a priori simples à interpréter.
+                <figure>
+                    <img src="images/image04.png" alt="Représentation d'un arbre de décision" width="250" />
+                    <figcaption>Représentation d'un arbre de décision.</figcaption>
+                </figure>
+            </p>
+            <p><strong>Les réseaux bayésiens<sup><a href="#ref4">[4]</a></sup></strong>. Permettent de déterminer des relations (dépendance, causalité) dans les variables explicatives.
+                <figure>
+                    <img src="images/image01.png" alt="Représentation d'un réseau bayésien" width="200" />
+                    <figcaption>Représentation d'un réseau bayésien. <a href="http://www.bnlearn.com/bnrepository/discrete-small.html#asia">Source</a>.</figcaption>
+                </figure>
+            </p>
+            <p><strong>Les classifieurs linéaires<sup><a href="#ref5">[5]</a></sup></strong>. Les classifieurs linéaires sont souvent utilisés en première approche car ils sont simples et donnent des résultats corrects. Une généralisation des classifieurs linéaire sont les SVM (Machines à Vecteurs de Support), intensément utilisés.
+                <figure>
+                    <img src="images/445px-Svm_max_sep_hyperplane_with_margin.png" alt="Illustration d'un SVM" width="200" />
+                    <figcaption>Illustration d'un SVM. <a href="https://commons.wikimedia.org/wiki/File:Svm_max_sep_hyperplane_with_margin.png">Domaine public</a>.</figcaption>
+                </figure>
+            </p>
+            <p><strong>Les algorithmes de clustering<sup><a href="#ref6">[6]</a></sup></strong></strong>. Ils permettent un apprentissage non supervisé en formant des clusters de données. Ex : KMeans, DBScan, …
+                <figure>
+                    <img src="images/Cluster-2.svg" alt="Résultat d'un clustering" width="200" />
+                    <figcaption>Résultat d'un clustering. <a href="https://commons.wikimedia.org/wiki/File:Cluster-2.svg">Domaine public</a>.</figcaption>
+                </figure>
+            </p></div>
+        </div>
+
+        <div class="c-gray">
+            <div class="container c-content" id="data">
+                <h1>Les données</h1>
+                <p>Les algorithmes ne font pas tout : les données sont un élément essentiel dans le Machine Learning. Les algorithmes de Machine Learning nécessitent généralement un grand volume de données pour apprendre correctement et de la qualité des données dépend la qualité des prédictions : leur collecte et leur préparation sont une tâche qu’il ne faut pas négliger.</p>
+                <h2>Les sources</h2>
+                <p>Le domaine de la santé n’est pas passé outre les révolutions apportées par l’ère du Big Data. Les sources de données sont multiples et leur volume s’accroît.
+                    <figure>
+                        <img src="images/image06.png" alt="Sources de données" width="600" class="img-thumbnail" />
+                        <figcaption>Sources de données.</figcaption>
+                    </figure>
+                </p>
+                <p>Les dossiers médicaux comme le DMP (Dossier Médical Partagé) en France ou l’EHR (Electronic Health Record) dans les pays anglophones se généralisent ; ils ont vocation à contenir tout l’historique médical du patient et d’autres données utiles sur le patient. Sa taille pourrait atteindre 6 téraoctets par patient<sup><a href="#ref7">[7]</a></sup></strong>.</p>
+
+                <p>À ces données s’ajoutent les données récoltés à travers l’utilisation d’Objets Connectés. Avec le développement de nombreuses applications smartphone dédiées à la santé et la mode qui s’en est suivie, l’Internet Of Things constitue une source de données précieuse : certaines données physiologiques peuvent être collectées de façon continue et en temps réel, et ce de manière non intrusive. L’<abbr title="International Data Corporation">IDC</abbr> prédit que d’ici 2019, 40% des organismes de santé utiliseront l’IoT pour mesurer de façon plus discrète les signes vitaux des patients<sup><a href="#ref8">[8]</a></sup>.</p>
+
+                <p>Enfin, de nombreux datasets sont disponibles librement<sup><a href="#ref9">[9]</a></sup>, notamment dans le cadre de l’Open Data, et constituent des ressources pour les chercheurs et scientifiques. Par exemple, le site internet data.gov met à disposition <a href="https://data.gov/health">de nombreuses données</a> sur la santé publique au États-Unis ; ou encore <a href="https://www.kaggle.com">Kaggle</a> qui propose de nombreuses compétitions de Data Science (notamment dans le domaine de la santé, à l'instar de <a href="https://www.kaggle.com/c/data-science-bowl-2017">Data Science Bowl 2017</a>, compétition la plus active actuellement, qui porte sur la détection du cancer du poumon) accompagnées de datasets.</p>
+                <h2>Des données complexes</h2>
+                <p>Mais les données sont aussi le point problématique du domaine médical pour des approches de Machine Learning. En effet, plusieurs aspects des données médicales constituent un frein aux avancées du Machine Learning dans ce domaine.</p>
+                <p>Les données médicales sont soumises à la subjectivité et aux erreurs des professionnels, mais aussi à la bonne foi du patient ; il en résulte des données bruitées et manquantes. Le manque de standards internationaux et la segmentation des données entre les différentes structures qui les ont obtenues s’ajoutent aux facteurs limitant leur exploitation. Aussi, le grand nombre de paramètres en jeu en font des données complexes<sup><a href="#ref10">[10]</a></sup>.</p>
+                <h2 id="data-protection">Des données protégées</h2>
+                <p>En outre, les données médicales sont des données sensibles et personnelles : un cadre légal est nécessaire pour leur protection. Cette contrainte s’ajoute aux freins à leur manipulation listés plus haut.<br />
+                En France, l’<abbr title="Agence des Systèmes d'Information Partagés de Santé">ASIP</abbr> Santé, ou encore Agence Française de la Santé Numérique, s’occupe de promouvoir et d’accompagner les projets de e-santé<sup><a href="#ref11">[11]</a></sup>. Elle pilote la définition du cadre légal concernant le traitement et le stockage de données médicales, en plus de la CNIL. Elle est habilité à décerner des certifications et des habilitations.
+                <blockquote><p>“Dans l'esprit de la loi, la volonté des pouvoirs publics est d’organiser le dépôt et la conservation des données de santé dans des conditions de nature à garantir leur pérennité et leur confidentialité, de les mettre à la disposition des personnes autorisées selon des modalités définies par contrat, et de les restituer en fin de contrat.”<sup><a href="#ref12">[12]</a></sup></p></blockquote>
+                Aux États-Unis, c’est l’<abbr title="Health Insurance Portability and Accountability Act">HIPAA</abbr> qui fixe au niveau fédéral les réglementations sur ces données.</p>
+                <h2>Le partage des données médicales</h2>
+                <p>La vidéo suivante montre l’importance de la communication des données médicales entre différentes structures.</p>
+                <iframe class="center-block" width="560" height="315" src="https://www.youtube.com/embed/sD4QiquLZiw" frameborder="0" allowfullscreen></iframe>
+                <p>Différents groupes de travails et conférences s’organisent pour travailler sur ce sujet. Quelques exemples : <a href="https://twitter.com/search?q=%23datasaveslives">#datasaveslives</a>, <a href="http://www.interopen.org/events">Interop Summit</a>.
+                <p><mark><strong>Le réel enjeu est la mise à disposition / centralisation des données médicales tout en assurant le respect de la vie privée et la sécurité de ces données.</strong></mark> Il n’est pas facile de faire confiance en de tels systèmes d’information pour la santé : chaque année, des données médicales de milliers de patients sont piratées ou fuitent par négligence<sup><a href="#ref13">[13]</a></sup>.</p>
+            </div>
+        </div>
+
+        <div class="container c-content" id="applications">
+            <h1>Les applications actuelles du Machine Learning pour la santé</h1>
+            <p>Comme annoncé plus haut, le Machine Learning est déjà bien présent dans le monde médical. Lister ici tous les cas d’utilisation du Machine Learning dans le domaine médical serait trop ambitieux ; cependant voici les applications majeures que j’ai repérées au cours de ma veille.</p>
+            <div class="col-md-6">
+            <h2>L’aide au diagnostic</h2>
+            <p>L’aide au diagnostic est l’exemple typique de classification supervisée appliquée à la santé. L’idée est de proposer un diagnostic ou une piste de diagnostic à partir de données dont l’obtention est moins coûteuse, plus rapide ou plus facile que le diagnostic classique en lui-même. L’analyse peut par exemple être basée sur des réponses à un questionnaire posé au patient ou sur des mesures de données physiologiques.
+                <ul>
+                    <li>Aviva remplace certains examens médicaux coûteux par des questionnaires lors d’une souscription à certaines assurances.</li>
+                    <li>HealthTap propose aux utilisateurs de son application Dr. AI un diagnostic rapide en fonction des symptômes<sup><a href="#ref14">[14]</a></sup> (là aussi il s’agit de répondre à des questions). L’application permet de rassurer l’utilisateur, de le mettre en contact avec un médecin et de l’alerter si le cas suspecté semble grave (et de l’inviter à se rendre aux urgences).</li>
+                </ul>
+            </p>
+            <p>Ces diagnostics sont rendus possible par un apprentissage sur des cas rencontrés par le passé.</p>
+
+            <h2>Aide au traitement après diagnostic</h2>
+            <p>Dans ce cas, le médecin a donné son diagnostic et obtient des suggestions de traitement. IBM Watson propose une telle solution<sup><a href="#ref15">[15]</a></sup>. L’apprentissage se fait sur des données de patients ainsi que sur l’analyse de faits et de documents scientifiques. Un argument pour l’emploi de tels systèmes est la détection d’erreurs de traitement / dosage qui peuvent parfois se révéler fatals.</p>
+
+            <h2>Imagerie médicale</h2>
+            <p>La vision par ordinateur est un des grands centres d’intérêt du Machine Learning. Le développement des réseaux de neurones profonds (Deep Learning) rendu possible par des systèmes de calculs distribués de plus en plus performants a permis d’obtenir des résultats très prometteurs en extraction de caractéristiques d’une image.</p>
+            <p>Appliqué à l’imagerie médicale, des systèmes de Machine Learning sont capables de détecter des éléments caractéristiques d’une pathologie dans les radiographies ou les <abbr="Imagerie par Résonance Magnétique">IRM</abbr>.</p>
+            <p>C’est ainsi que Sebastian Thrun (Stanford Artificial Intelligence Laboratory) et son équipe ont développé une algorithme de Machine Learning capable d’identifier de potentiels mélanomes, responsables du cancer de la peau, à partir d’images de grains de beauté<sup><a href="#ref16">[16]</a></sup>. Cette inspection visuelle, jusqu’alors réalisée par les dermatologistes, est la première étape dans le diagnostic du cancer de la peau ; s’ensuit une biopsie lorsqu’un mélanome est suspecté. L’algorithme s’est avéré aussi performant que des dermatologistes, avec une AUC (aire sous la courbe ROC) d’au moins 91%. L’étape suivante serait le portage de leur procédé sur smartphone pour mettre à disposition du public un moyen rapide et fiable de diagnostic.<br />
+            La phase de récupération et de préparation des données d’apprentissage a été une étape essentielle dans l’obtention de résultats probants.</p>
+            <p>Un autre exemple est la startup Zebra Medical Vision<sup><a href="#ref17">[17]</a></sup>, spécialisée dans ce domaine.</p>
+</div><div class="col-md-6">
+            <h2>Prédiction de données quantitatives pour l’administration d’organisations</h2>
+            <p>L’emploi du Machine Learning ne s’arrête pas au patient lui-même, mais peut être étendu aux structures de soins dans une optique d’amélioration de la qualité des services.</p>
+            <p>C’est l’exemple de quatre hôpitaux de l’AP-HP (Assistance Publique - Hôpitaux de Paris) qui ont mis en place un système de prédiction du taux de fréquentation de l’hôpital<sup><a href="#ref18">[18]</a></sup>. Pour augmenter la qualité des prédictions, des données internes (notamment les fréquentations des dix années antérieures) mais aussi externes (la météo par exemple) ont été utilisées. Le système est capable de prédire les fréquentations à l’heure près. En plus de fournir des prédictions précieuses, le développement de ce système a contribué au projet opensource <a href="http://trustedanalytics.org/">TAP</a> qu’il utilise en proposant une implémentation distribuée de l’analyse des séries temporelles.</p>
+
+            <h2>Découverte de nouveaux médicaments</h2>
+            <p>Le Machine Learning se retrouve aussi à la source du traitement des maladies. Aujourd’hui, il est estimé que la mise sur le marché d’un nouveau médicament (depuis sa découverte jusqu’à la commercialisation) prend environ 13 ans et peut coûter plusieurs milliards d’euros<sup><a href="#ref19">[19]</a></sup>. Appliquer le Machine Learning pour analyser des substances avec telle ou telle propriété et en découvrir de nouvelles pourrait accélérer le rythme des découvertes de nouveaux traitements et abaisser drastiquement les coûts de développement (jusqu’à 70% d’après une étude de la Carnegie Mellon University et l’Albert Ludwig University of Freiburg<sup><a href="#ref20">[20]</a></sup>)</p>
+            <p>Des startups comme Benevolent.AI<sup><a href="#ref19">[19]</a></sup> ou Insilico Medicine<sup><a href="#ref21">[21]</a></sup> mais aussi Google<sup><a href="#ref22">[22]</a></sup> effectuent des travaux pour la découverte automatique de médicaments.<br />
+            Pour découvrir de nouveaux composés susceptibles d’avoir des effets vertueux dans le traitement d’une pathologie, des modèles de deep learning (réseaux de neurones profonds) sont entraînés à partir de composés dont les propriétés sont connues. Après manipulation de la structure du réseau de neurones, l’algorithme est en mesure de proposer des molécules pouvant avoir des propriétés demandées. Dans certains cas, des molécules connues mais non présentées lors de l’apprentissage ont été ainsi retrouvées.</p>
+            <p>Là encore, la rareté des données est pointée du doigt : près de la moitié des résultats des tests cliniques ne sont pas publiés<sup><a href="#ref19">[19]</a></sup>.</p>
+
+            <h2>Collecte et mise à disposition des données</h2>
+            <p>En raison du manque de données exploitables (pour des raisons données dans la partie précédente), des initiatives de facilitation de collecte des données ont vu le jour. C’est ainsi qu’Apple a conçu les frameworks opensource ResearchKit et CareKit<sup><a href="#ref23">[23]</a></sup>. Le premier est centré sur les professionnels de la santé et destiné à la fabrication d’applications vouées à la réalisation d’études cliniques. Il facilite la mise en relation entre les chercheurs et les utilisateurs désireux de participer à une étude. L’avantage de l’utilisation d’un smartphone (un iPhone dans ce cas) comme interface entre les chercheurs et les participants à l’étude est la facilité de collecter continuellement des données de façon non gênante. Ces études médicales étant à portée de doigt, plus de données sont recueillies, et sur plus de participants qu’avec des méthodes traditionnelles : l’application mPower, développée avec ResearchKit, a permis aux chercheurs de mener une étude sur la maladie de Parkinson basée sur plus de 10000 participants (ce chiffre n’avait jamais été atteint auparavant pour cette maladie).<br />
+            Le second framework, CareKit, centré sur l’utilisateur, permet de construire plus facilement des applications pour la santé.</p>
+            <p>Apple a d’ailleurs été placée deuxième dans un classement des entreprises les plus innovantes dans le domaine de la santé pour avoir traité des données pour construire des applications liées à la santé<sup><a href="#ref24">[24]</a></sup>.</p>
+            
+            </div>
+        </div>
+
+        <div class="c-gray" id="perspectives">
+            <div class="container c-content">
+
+                <h1>Perspectives</h1>
+                <p>Au vu des applications du Machine Learning dans le domaine médical et de la sophistication croissante des intelligences artificielles, les espoirs sont grands quant aux avancées qui pourront être faites dans la santé.
+                Pour se rendre compte de la croissance du Machine Learning dans la santé, il n’y a qu’à remarquer la prolifération des startups dans ce domaine précis.</p>
+                <figure>
+                    <img src="images/image02.png" class="img-thumbnail" alt="Quelques startups exploitant le Machine Learning dans le domaine médical" width="700" />
+                    <figcaption>Quelques startups exploitant le Machine Learning dans le domaine médical. <a href="https://www.cbinsights.com/blog/artificial-intelligence-startups-healthcare/">Source : CBINSIGHTS</a>.</figcaption>
+                </figure>
+
+                <div class="col-md-6">
+                <h2>Médecine personnalisée</h2>
+                <p>La médecine personnalisée est une grande attente de l’application du Machine Learning dans les soins. En tenant compte de l’ensemble des données disponibles sur le patient, le choix d’un traitement parmi d’autres pourrait être plus éclairé. Dans le cas du cancer de la prostate, la médecine personnalisée permettrait de retarder de façon sûre le traitement (traitement dont les conséquences sont souvent lourdes dans le quotidien des patients) en surveillant activement la propagation de la maladie<sup><a href="#ref25">[25]</a></sup>. En effet, il est estimé que le cancer de la prostate est surtraité.</p>
+                <p>Il en suivrait aussi un meilleur accompagnement des patients (suivi après hospitalisation, suivi lors d’un traitement…).</p>
+                </div>
+
+                <div class="col-md-6">
+                <h2>Prédictions plus fiables</h2>
+                <p>Avec l’accroissement des données traitées, on s’attend à des prédictions plus fiables. On peut prendre l’exemple – morbide certes – de la fin de vie : avec une information plus précise sur la fin de vie du patient, le surtraitement et l’acharnement thérapeutique pourront être évités et le médecin sera mieux préparé à accompagner le patient et sa famille<sup><a href="#ref26">[26]</a></sup>.</p>
+                </div>
+
+                <div class="clearfix"></div>
+                
+                <div class="col-md-6">
+                <h2>Mutation des métiers</h2>
+                <p>Une chose est sûre, les métiers de la santé et ceux liés aux Data Sciences vont se rapprocher et les professionnels seront amenés à se rapprocher.<br />
+                Le quotidien des professionnels de santé va aussi évoluer : selon l’IDC, 30% du temps des professionnels de la santé pourrait être libéré par la collecte et l’analyse automatiques des données<sup><a href="#ref8">[8]</a></sup>.</p>
+                </div>
+
+                <div class="col-md-6">
+                <h2>Médecine pour tous</h2>
+                <p>Enfin, une grande attente de l’application du Machine Learning à la santé et plus généralement du développement d’applications sérieuses smartphone dédiées à la santé est l’accès rapide, à moindre coût et à tous à la médecine. Des applications smartphones de diagnostic peuvent par exemple être utilisées comme solution – certes limitée – dans des zones où l’accès aux soins est limité.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container c-content" id="limites">
+            <h1>Limites</h1>
+            <p>Il ne faut tout de même pas perdre de vue les limites de l’application du Machine Learning au domaine médical.</p>
+<div class="col-md-6">
+            <h2>Méfiances des professionnels et des patients</h2>
+            <p>C’est un point inévitable. Accepter et faire confiance à un “raisonnement” fait par une machine n’est pas facile, surtout lorsque la vie de personnes est en jeu.<br />
+            Les professionnels sont prudents par rapport aux algorithmes pour les raisons suivantes :
+            <ul>
+                <li>peur de voir leur métier transformé voire d’être remplacés par des machines ;</li>
+                <li>complexité de leur métier et de leur savoir-faire qui ne pourrait pas être intégrée dans une machine ;</li>
+                <li>importance de l’aspect humain.</li>
+            </ul>
+            Pour les patients, il est naturel de préférer un diagnostic venant d’un médecin – enfin pas tout le monde : Vinod Kholsa, co-fondateur de Sun Microsystems et fondateur de Khosla Ventures, second investisseur dans le domaine de la santé digitale, affirme préférer un bon algorithme de machine learning pour le diagnostic d’une maladie plutôt qu’un médecin moyen. L’utilisation massive de données personnelles vient aussi renforcer leur méfiance. À cela vient s’ajouter une toute autre problématique : veut-on vraiment tout savoir sur sa santé ? par exemple – exemple extrême je le concède – veut-on vraiment connaître le moment de sa mort ?</p>
+</div>
+<div class="col-md-3">
+            <h2>Modèles en boîte noire</h2>
+            <p>Les modèles développées à l’aide du Machine Learning ont bien souvent la fâcheuse tendance à fonctionner en “boîte noire” : le modèle fournit des prédictions à partir de données d’entrée mais il est impossible de suivre le cheminement logique qui a poussé le système à faire cette prédiction.<br />
+            Les réseaux de neurones en sont un bon exemple ; même les arbres de décision deviennent abstraits lorsqu’ils deviennent complexes (random forests, boosting…).</p>
+            <p>Sans possibilité d’interprétation, ces modèles perdent de l’intérêt pour la communauté médicale.</p>
+</div>
+<div class="col-md-3">
+            <h2>Protection des données</h2>
+            <p>La protection des données reste une problématique majeure de l’application du Machine Learning dans le domaine médical. Je vous renvoie <a href="#data-protection">plus haut</a> pour en relire les détails.</p>
+</div>
+        </div>
+
+        <div class="c-gray">
+            <div class="container c-outro">
+                <h1>Conclusion</h1>
+                <p>Le Machine Learning n’est pas prêt de remplacer les médecins, mais il constitue un formidable outil pour les professionnels de la santé qu’il serait absurde d’ignorer. Le Machine Learning et l’intelligence artificielle ont un bel avenir dans le domaine médical, mais il ne faut surtout pas perdre de vue les problématiques des sujets de son application – patients, médecins, scientifiques.</p>
+                <blockquote>
+                    <p style="font-size: 1em;">“I think the biggest innovations of the 21st century will be at the intersection of biology and technology. A new era is beginning.”</p>
+                    <cite><small>Steve Jobs</small></cite>
+                </blockquote>
+            </div> 
+        </div>      
 
         <!--
         <div class="c-gray">
@@ -34,5 +308,39 @@
             </div> 
         </div>
         -->
+        <div class="container" id="refs">
+            <div class="col-md-8">
+            <h1>Références</h1>
+            <ul class="list-unstyled">
+                <li id="ref1">[1] David Page. Evaluating Machine Learning Methods. <a href="http://pages.cs.wisc.edu/~dpage/cs760/evaluating.pdf">http://pages.cs.wisc.edu/~dpage/cs760/evaluating.pdf.</a></li>
+                <li id="ref2">[2] Wikipédia. Réseau de neurones artificiels. <a href="https://fr.wikipedia.org/wiki/R%C3%A9seau_de_neurones_artificiels">https://fr.wikipedia.org/wiki/R%C3%A9seau_de_neurones_artificiels.</a></li>
+                <li id="ref3">[3] Wikipédia. Arbre de décision (apprentissage). <a href="https://fr.wikipedia.org/wiki/Arbre_de_d%C3%A9cision_(apprentissage)">https://fr.wikipedia.org/wiki/Arbre_de_d%C3%A9cision_(apprentissage).</a></li>
+                <li id="ref4">[4] Wikipédia. Réseau bayésien. <a href="https://fr.wikipedia.org/wiki/R%C3%A9seau_bay%C3%A9sien">https://fr.wikipedia.org/wiki/R%C3%A9seau_bay%C3%A9sien.</a></li>
+                <li id="ref5">[5] Wikipédia. Classifieur linéaire. <a href="https://fr.wikipedia.org/wiki/Classifieur_lin%C3%A9aire">https://fr.wikipedia.org/wiki/Classifieur_lin%C3%A9aire.</a></li>
+                <li id="ref6">[6] Wikipédia. Partitionnement de données. <a href="https://fr.wikipedia.org/wiki/Partitionnement_de_donn%C3%A9es">https://fr.wikipedia.org/wiki/Partitionnement_de_donn%C3%A9es.</a></li>
+                <li id="ref7">[7] Orion Health. Introduction to Machine Learning in Healthcare. <a href="http://web.orionhealth.com/rs/981-HEV-035/images/Introduction_To_Machine_Learning_US.pdf">http://web.orionhealth.com/rs/981-HEV-035/images/Introduction_To_Machine_Learning_US.pdf.</a></li>
+                <li id="ref8">[8] IDC Community. IDC FutureScape: Worldwide Healthcare IT 2017 Predictions. <a href="https://idc-community.com/health/healthcare-transformation/idc_futurescape_worldwide_healthcare_it_2017_predictions">https://idc-community.com/health/healthcare-transformation/idc_futurescape_worldwide_healthcare_it_2017_predictions.</a></li>
+                <li id="ref9">[9] Wikipédia. List of datasets for machine learning research. <a href="https://en.wikipedia.org/wiki/List_of_datasets_for_machine_learning_research#Human">https://en.wikipedia.org/wiki/List_of_datasets_for_machine_learning_research#Human.</a></li>
+                <li id="ref10">[10] Quora. Why is machine learning not more widely used for medical diagnosis? <a href="https://www.quora.com/Why-is-machine-learning-not-more-widely-used-for-medical-diagnosis">https://www.quora.com/Why-is-machine-learning-not-more-widely-used-for-medical-diagnosis.</a></li>
+                <li id="ref11">[11] ASIP Santé. Missions. <a href="http://esante.gouv.fr/asip-sante/qui-sommes-nous/missions">http://esante.gouv.fr/asip-sante/qui-sommes-nous/missions.</a></li>
+                <li id="ref12">[12] ASIP Santé. Le référentiel de constitution des dossiers de demande d'agrément des hébergeurs de données de santé à caractère personnel. <a href="http://esante.gouv.fr/services/referentiels/securite/le-referentiel-de-constitution-des-dossiers-de-demande-d-agrement-des">http://esante.gouv.fr/services/referentiels/securite/le-referentiel-de-constitution-des-dossiers-de-demande-d-agrement-des.</a></li>
+                <li id="ref13">[13] Wikipédia. List of data breaches. <a href="https://en.wikipedia.org/wiki/List_of_data_breaches">https://en.wikipedia.org/wiki/List_of_data_breaches</a> (voir organization type = healthcare)</li>
+                <li id="ref14">[14] HealthTap launches Dr. A.I.— Meet your new, personal AI-powered physician. <a href="https://medium.com/@HealthTap/dr-a-i-80b4cf06be30">https://medium.com/@HealthTap/dr-a-i-80b4cf06be30.</a></li>
+                <li id="ref15">[15] Fortune. Watch IBM Watson Suggest Treatments for a Cancer Patient. <a href="http://fortune.com/2016/11/02/ibm-watson-cancer-demo-brainstorm-health/">http://fortune.com/2016/11/02/ibm-watson-cancer-demo-brainstorm-health/.</a></li>
+                <li id="ref16">[16] Stanford News. Deep learning algorithm does as well as dermatologists in identifying skin cancer. <a href="http://news.stanford.edu/2017/01/25/artificial-intelligence-used-identify-skin-cancer/">http://news.stanford.edu/2017/01/25/artificial-intelligence-used-identify-skin-cancer/.</a></li>
+                <li id="ref17">[17] Zebra Medical Vision. <a href="https://www.zebra-med.com/">https://www.zebra-med.com/.</a></li>
+                <li id="ref18">[18] TAP. French Hospital Uses TAP to Predict Emergency Department Visits and Hospital Admissions. <a href="http://trustedanalytics.org/wp-content/uploads/2016/08/AP-HP-case-study-020717.pdf">http://trustedanalytics.org/wp-content/uploads/2016/08/AP-HP-case-study-020717.pdf.</a></li>
+                <li id="ref19">[19] The Huffington Post. Using Machine Learning To Make Drug Discovery Better. <a href="http://www.huffingtonpost.com/adi-gaskell/using-machine-learning-to_b_12049046.html">http://www.huffingtonpost.com/adi-gaskell/using-machine-learning-to_b_12049046.html.</a></li>
+                <li id="ref20">[20] eLife. Active machine learning-driven experimentation to determine compound effects on protein patterns. <a href="https://elifesciences.org/content/5/e10047">https://elifesciences.org/content/5/e10047.</a></li>
+                <li id="ref21">[21] Moscow Institute of Physics and Technology. Neural network learns to select potential anticancer drugs. <a href="https://eurekalert.org/pub_releases/2017-02/miop-nnl020917.php">https://eurekalert.org/pub_releases/2017-02/miop-nnl020917.php.</a></li>
+                <li id="ref22">[22] Research at Google. Large-Scale Machine Learning for Drug Discovery. <a href="https://research.googleblog.com/2015/03/large-scale-machine-learning-for-drug.html">https://research.googleblog.com/2015/03/large-scale-machine-learning-for-drug.html.</a></li>
+                <li id="ref23">[23] Apple. ReseachKit et CareKit. <a href="http://www.apple.com/fr/researchkit/">http://www.apple.com/fr/researchkit/.</a></li>
+                <li id="ref24">[24] Fast Company. The Most Innovative Companies of 2017 by Sector. <a href="https://www.fastcompany.com/most-innovative-companies/2017/sectors/health">https://www.fastcompany.com/most-innovative-companies/2017/sectors/health.</a></li>
+                <li id="ref25">[25] STAT. Prostate cancer treatment needs to get more personalized. <a href="https://www.statnews.com/2016/09/30/prostate-cancer-personalized-medicine/">https://www.statnews.com/2016/09/30/prostate-cancer-personalized-medicine/.</a></li>
+                <li id="ref26">[26] GNS Healthcare. Healthcare's Machine Learning Advantage. <a href="http://blog.gnshealthcare.com/clinical-applications-for-machine-learning">http://blog.gnshealthcare.com/clinical-applications-for-machine-learning.</a></li>
+            </ul>
+            </div>
+        </div>
     </body>
 </html>
+`
