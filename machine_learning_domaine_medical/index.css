@@ -1,0 +1,117 @@
+body {
+    font-family: 'Lato', sans-serif;
+    color: #424242;
+}
+
+/*
+    colors
+    green: #1abc9c
+    red-pink: #e91d63
+    gray: #f3f3f3
+*/
+
+figure {
+    text-align: center;
+}
+
+#nav {
+    display: none;
+}
+
+.c-navbar {
+    background-color: #1abc9c;
+    color: white;
+    border: none;
+}
+
+.c-navbar .navbar-brand {
+   color: white !important; 
+}
+
+.c-navbar a {
+    color: white !important;
+}
+
+.c-navbar a:hover, .c-navbar .active a {
+    background-color: #0aac8c !important;
+}
+
+.c-main-header {
+    background-image: url(images/pills.jpg);
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-size: cover;
+
+    height: 600px;
+
+    position: relative;
+}
+
+.c-main-header .c-cover {
+    background-color: #e91d63;
+    color: white;
+    padding: 70px 0;
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+    margin: 130px 0 0 0;
+}
+
+.c-main-header .c-cover h1 {
+    font-size: 3.4em;
+    font-weight: 300;
+}
+
+.c-main-header .c-cover h2 {
+    font-size: 1.3em;
+    font-weight: 400;
+}
+
+.c-main-header .c-cover a {
+    color: white;
+    text-decoration: underline;
+}
+
+.c-intro, .c-outro {
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.copyright {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 5px 10px;
+    font-size: 0.7em;
+    background: white;
+    opacity: 0.8;
+    color: black;
+}
+
+.copyright a {
+    color: black;
+}
+
+.c-intro p, .c-outro p {
+    font-size: 2em;
+}
+
+.c-gray {
+    background-color: #f9f9f9;
+}
+
+.c-content {
+    padding: 30px 0 50px 0;
+    font-size: 1.2em;
+}
+
+.c-content figure {
+    margin: 20px 0;
+}
+
+.c-content h1, .c-outro h1 {
+    color: #e91d63;
+}
+
+.c-content h2 {
+    color: #1abc9c;
+}
